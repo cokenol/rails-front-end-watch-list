@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>New bookmark</h1>
+  <%# <%= render 'form', movies: @movies, list: @list %>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.button :submit, class:'btn btn-primary' %>
+  <%= link_to 'Cancel', :back, class:'btn btn-danger'  %>
+<% end %>
+</div>
