@@ -1,11 +1,13 @@
 <div class="container">
   <h1>Lists</h1>
   <%= link_to 'New list', new_list_path  %>
-  <div class="list-group">
-    <% @lists.each do |a| %>
-      <div class="list-group-item">
-        <%= a.name %>
-      </div>
-    <% end %>
-  </div>
+    <div class="cards">
+      <% @lists.each do |list| %>
+        <%= link_to list_path(list) do  %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1000x500/?movies,<%=list.name%>;})">
+              <%= list.name %>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
 </div>

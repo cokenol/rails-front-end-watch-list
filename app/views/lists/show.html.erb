@@ -1,4 +1,19 @@
 <div class="container">
   <h1><%= @list.name %></h1>
+  <%= link_to 'New bookmark', new_list_bookmark_path(@list) %> |
   <%= link_to 'Back', lists_path  %>
+  <div class="row row-cols-sm-1 row-cols-sm-2 row-cols-lg-3">
+      <% @list.movies.each do |m| %>
+        <div class="col mb-4">
+            <div class="card card-movie">
+              <img src="<%=m.poster_url%>"  class="card-img-top" alt="...">
+              <div class="card-body card-info">
+                <h5 class="card-title"><%= m.title%></h5>
+
+                <p class="card-text"><small><%= m.overview.truncate(50)%></small></p>
+              </div>
+            </div>
+        </div>
+      <% end %>
+  </div>
 </div>
